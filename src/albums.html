@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Indie Records</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="tailwind.config.cjs"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&display=swap");
+
+      .album-card {
+        position: relative;
+        width: 250px;
+        height: 250px;
+      }
+
+      .album-card:hover .album-info {
+        display: block;
+      }
+
+      .album-cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid black;
+      }
+
+      .album-info {
+        display: none;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+        color: black;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #be0000;
+        font-family: "Bungee", cursive;
+        font-family: "Bungee Inline", cursive;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="grid place-items-center p-8">
+    <div class="grid grid-cols-4 gap-4">
+      <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/moon_safari.jpg"
+            alt="Moon Safari"
+          />
+          <div class="album-info">
+            <p style="font-family: 'Bungee Inline'">Air</p>
+            <p style="font-family: 'Bungee Inline'">Moon Safari</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="album-card">
+          <img class="album-cover" src="album_covers/party.jpg" alt="Party" />
+          <div class="album-info">
+            <p>Aldous Harding</p>
+            <p>Party</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/designer.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Aldous Harding</p>
+            <p>Designer</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/jumping_the_shark.jpg"
+            alt="Jumping the Shark"
+          />
+          <div class="album-info">
+            <p>Alex Cameron</p>
+            <p>Jumping the Shark</p>
+          </div>
+        </div>
+      </div>
+      <!-- Add more album entries here -->
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
