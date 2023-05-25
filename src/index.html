@@ -8,20 +8,85 @@
     <title>Indie Records</title>
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="tailwind.config.cjs"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&display=swap");
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+      }
+
+      .menu-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        height: 60px;
+        padding: 0 20px;
+        font-family: "Bungee", sans-serif;
+      }
+
+      .menu-bar .logo {
+        width: 120px;
+      }
+
+      .menu-bar .navigation {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu-bar .navigation a {
+        margin-right: 15px;
+        color: rgba(190, 0, 0, 1);
+        text-decoration: none;
+      }
+
+      .menu-bar .icons {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu-bar .icons i {
+        margin-left: 15px;
+        color: rgba(190, 0, 0, 1);
+        font-size: 20px;
+      }
+
+      .content {
+        display: grid;
+        place-items: center;
+        height: calc(100vh - 60px);
+      }
+    </style>
   </head>
-  <body class="grid place-items-center p-8">
-    <section>
-      <h1 class="text-xl font-bold text-emerald-700">Indie Records</h1>
-      <p class="text-emerald-500">
-        Powered by <a href="https://vitejs.dev/guide">Vite</a>
-      </p>
-      <img src="img/vite.svg" alt="Vite Logo" />
-    </section>
-    <section>
-      <div>
-        <img src="rec.gif" alt="record" />
+  <body>
+    <nav class="menu-bar">
+      <img class="logo" src="album_covers/logo.png" alt="logo" />
+      <div class="navigation">
+        <a href="#">Home</a>
+        <a href="#">Udvalg</a>
       </div>
-    </section>
+      <div class="icons">
+        <i class="fa fa-search"></i>
+        <i class="fa fa-user"></i>
+      </div>
+    </nav>
+    <div class="content">
+      <section>
+        <h1 class="text-xl font-bold text-emerald-700">Indie Records</h1>
+        <p class="text-emerald-500">
+          Powered by <a href="https://vitejs.dev/guide">Vite</a>
+        </p>
+        <img src="img/vite.svg" alt="Vite Logo" />
+      </section>
+      <section>
+        <div>
+          <img src="rec.gif" alt="record" />
+        </div>
+      </section>
+    </div>
 
     <script type="module" src="./main.js"></script>
   </body>

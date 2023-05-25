@@ -16,6 +16,9 @@
         position: relative;
         width: 250px;
         height: 250px;
+        margin-bottom: 70px;
+        margin-left: 10px;
+        margin-right: 10px;
       }
 
       .album-card:hover .album-info {
@@ -28,6 +31,8 @@
         object-fit: cover;
         border: 1px solid black;
       }
+      .album-cover:hover {opacity: 75%;}
+
 
       .album-info {
         display: none;
@@ -44,16 +49,83 @@
       }
 
       body {
-        background-image: url("https://github.com/jose4400/records/blob/master/src/record.png?raw=true");
+        background-image: url("src/record.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
       }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .menu-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        height: 60px;
+        padding: 0 20px;
+        font-family: "Bungee", sans-serif;
+      }
+
+      .menu-bar .logo {
+        width: 120px;
+      }
+
+      .menu-bar .navigation {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu-bar .navigation a {
+        margin-right: 15px;
+        color: rgba(190, 0, 0, 1);
+        text-decoration: none;
+      }
+
+      .menu-bar .icons {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu-bar .icons i {
+        margin-left: 15px;
+        color: rgba(190, 0, 0, 1);
+        font-size: 20px;
+      }
+
+      .content {
+        display: grid;
+        place-items: center;
+        height: calc(100vh - 60px);
+      }
+
+      .scale-down-center:hover{animation:scale-down-center .4s cubic-bezier(.25,.46,.45,.94) both}
+      @keyframes scale-down-center{0%{transform:scale(1)}100%{transform:scale(.5)}}
+    
+
+    </style>
+  </head>
+  
+ 
     </style>
   </head>
   <body class="grid place-items-center p-8">
-    <div class="grid grid-cols-4 gap-4">
+    <nav class="menu-bar">
+     <img class="logo" src="album_covers/logo.png" alt="logo">
+      <div class="navigation">
+        <a class="menu scale-down-center" href="index.html">Home</a>
+        <a class="menu scale-down-center" href="albums.html">Udvalg</a>
+      </div>
+      <div class="icons menu">
+        <i class="fa fa-search scale-down-center"></i>
+        <i class="fa fa-user scale-down-center"></i>
+      </div>
+    </nav>
+    <div class="bg-img grid grid-cols-4 gap-4">
       <div class="col-span-1">
         <div class="album-card">
           <img
@@ -63,7 +135,7 @@
           />
           <div class="album-info">
             <p style="font-family: 'Bungee Inline'">Air</p>
-            <p style="font-family: 'Bungee Inline'">Moon Safari</p>
+            <p class="small" style="font-family: 'Bungee Inline'">Moon Safari</p>
           </div>
         </div>
       </div>
@@ -72,7 +144,7 @@
           <img class="album-cover" src="album_covers/party.jpg" alt="Party" />
           <div class="album-info">
             <p>Aldous Harding</p>
-            <p>Party</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Party</p>
           </div>
         </div>
       </div>
@@ -85,7 +157,20 @@
           />
           <div class="album-info">
             <p>Aldous Harding</p>
-            <p>Designer</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Designer</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/forced.webp"
+            alt="Jumping the Shark"
+          />
+          <div class="album-info">
+            <p>Alex Cameron</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Forced Witness</p>
           </div>
         </div>
       </div>
@@ -94,16 +179,146 @@
           <img
             class="album-cover"
             src="album_covers/jumping_the_shark.jpg"
-            alt="Jumping the Shark"
+            alt="Designer"
           />
           <div class="album-info">
             <p>Alex Cameron</p>
-            <p>Jumping the Shark</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Jumping The Shark</p>
           </div>
         </div>
-      </div>
-      <!-- Add more album entries here -->
-    </div>
+      </div>      <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/miami.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Alex Cameron</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Miami Memory</p>
+          </div>
+        </div>
+      </div>      <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/submaring.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Alex Turner</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Submarine</p>
+          </div>
+        </div>
+      </div>      <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/backtoblack.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Amy Winehouse</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Back To Black</p>
+          </div>
+        </div>
+      </div>     <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/frank.png"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Amy Winehouse</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Frank</p>
+          </div>
+        </div>
+      </div>     <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/xmassisters.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>The Andrew Sisters</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Songs for Christmas</p>
+          </div>
+        </div>
+      </div>     <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/mywoman.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Angel Olsen</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">My Woman</p>
+          </div>
+        </div>
+      </div>     <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/phases.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Angel Olsen</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Phases</p>
+          </div>
+        </div>
+      </div>     <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/mirrors.png"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Angel Olsen</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">All Mirrors</p>
+          </div>
+        </div>
+      </div>     <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/hunter.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Anna Calvi</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Hunter</p>
+          </div>
+        </div>
+      </div>     <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/breath.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Anna Calvi</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">One Breath</p>
+          </div>
+        </div>
+      </div>     <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/calvi.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Anna Calvi</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Anna Calvi</p>
+          </div>
+        </div>
+      </div>    </div>
 
     <script type="module" src="./main.js"></script>
   </body>
