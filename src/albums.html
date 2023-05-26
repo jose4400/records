@@ -11,29 +11,29 @@
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&display=swap");
-
+  
       .album-card {
         position: relative;
-        width: 250px;
-        height: 250px;
-        margin-bottom: 70px;
-        margin-left: 10px;
-        margin-right: 10px;
+        width: 200px;
+        height: 200px;
+        margin-bottom: 80px;
       }
-
+  
       .album-card:hover .album-info {
         display: block;
       }
-
+  
       .album-cover {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border: 1px solid black;
       }
-      .album-cover:hover {opacity: 75%;}
-
-
+  
+      .album-cover:hover {
+        opacity: 0.75;
+      }
+  
       .album-info {
         display: none;
         bottom: 0;
@@ -47,7 +47,7 @@
         font-family: "Bungee Inline", cursive;
         text-align: center;
       }
-
+  
       body {
         background-image: url("src/record.png");
         background-size: cover;
@@ -55,12 +55,7 @@
         background-position: center;
         background-attachment: fixed;
       }
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-      }
-
+  
       .menu-bar {
         display: flex;
         align-items: center;
@@ -69,43 +64,162 @@
         height: 60px;
         padding: 0 20px;
         font-family: "Bungee", sans-serif;
+        align-self: flex-start;
       }
-
+  
       .menu-bar .logo {
         width: 120px;
       }
-
+  
       .menu-bar .navigation {
         display: flex;
         align-items: center;
       }
-
+  
       .menu-bar .navigation a {
         margin-right: 15px;
         color: rgba(190, 0, 0, 1);
         text-decoration: none;
+        align-items: end;
       }
-
+  
       .menu-bar .icons {
         display: flex;
         align-items: center;
       }
-
+  
       .menu-bar .icons i {
         margin-left: 15px;
         color: rgba(190, 0, 0, 1);
         font-size: 20px;
       }
-
+  
       .content {
         display: grid;
         place-items: center;
         height: calc(100vh - 60px);
       }
+  
+      .scale-down-center:hover {
+        animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+  
+      @keyframes scale-down-center {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0.5);
+        }
+      }
+  
+      h1 {
+        font-family: "Bungee Inline",cursive;
+  font-size: 48px;
+  color: #be0000;
+  text-align: center;
+  margin-bottom: 20px;
+  }
+   @media (max-width: 768px) {
+  .album-card {
+    width: 150px;
+    height: 150px;
+  }
 
-      .scale-down-center:hover{animation:scale-down-center .4s cubic-bezier(.25,.46,.45,.94) both}
-      @keyframes scale-down-center{0%{transform:scale(1)}100%{transform:scale(.5)}}
-    
+  .album-info {
+    font-size: 14px;
+  }
+
+  .menu-bar .logo {
+    width: 100px;
+  }
+
+  .menu-bar .navigation a {
+    margin-right: 10px;
+  }
+
+  .menu-bar .icons i {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+
+  .content {
+    height: calc(100vh - 80px);
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-card {
+    width: 120px;
+    height: 120px;
+  }
+
+  .album-info {
+    font-size: 12px;
+  }
+
+
+
+  .content {
+    height: calc(100vh - 100px);
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+   /* Hide the navigation links by default on mobile and tablet */
+   .menu-bar .navigation {
+        display: none;
+      }
+
+      /* Display the burger menu icon on mobile and tablet */
+      .menu-bar .burger-menu {
+        display: block;
+        cursor: pointer;
+        color: rgba(190, 0, 0, 1);
+        font-size: 20px;
+        margin-left: 15px;
+      }
+
+      /* Show the navigation links in a dropdown when the burger menu is clicked */
+      .menu-bar .navigation.mobile {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .menu-bar .navigation.mobile a {
+        margin: 5px 0;
+      }
+
+      @media (min-width: 768px) {
+        /* Show the navigation links on desktop */
+        .menu-bar .navigation {
+          display: flex;
+          align-items: center;
+        }
+
+        /* Hide the burger menu icon on desktop */
+        .menu-bar .burger-menu {
+          display: none;
+        }
+
+        /* Hide the mobile navigation links on desktop */
+        .menu-bar .navigation.mobile {
+          display: none;
+        }
+      }
 
     </style>
   </head>
@@ -113,19 +227,27 @@
  
     </style>
   </head>
-  <body class="grid place-items-center p-8">
+  <body class="">
     <nav class="menu-bar">
-     <img class="logo" src="album_covers/logo.png" alt="logo">
+      <img class="logo" src="album_covers/logo.png" alt="logo" />
       <div class="navigation">
-        <a class="menu scale-down-center" href="index.html">Home</a>
-        <a class="menu scale-down-center" href="albums.html">Udvalg</a>
+        <a class="menu scale-down-center text-xl pr-10" href="index.html">Home</a>
+        <a class="menu scale-down-center text-xl pr-10" href="albums.html">Udvalg</a>
+        <div class="icons">
+          <a href="https://www.facebook.com/" class="scale-down-center">
+            <img src="facebook.svg" alt="facebook" />
+          </a>
+          <a href="https://www.instagram.com/" class="scale-down-center">
+            <img src="insta.svg" alt="instagram" />
+          </a>
+        </div>
       </div>
-      <div class="icons menu">
-        <i class="fa fa-search scale-down-center"></i>
-        <i class="fa fa-user scale-down-center"></i>
-      </div>
+      <div class="burger-menu" onclick="toggleMobileNavigation()">&#9776;</div>
+      <!-- Add an additional empty div for the mobile navigation links -->
+      <div class="navigation mobile"></div>
     </nav>
-    <div class="bg-img grid grid-cols-4 gap-4">
+    <div class="text-5xl m-9"><h1>Udvalg</h1></div>
+    <div class="bg-img grid grid-cols-5 gap-2 place-items-center m-16">
       <div class="col-span-1">
         <div class="album-card">
           <img
@@ -318,8 +440,371 @@
             <p class="text-xs	" style="font-family: 'Bungee Inline'">Anna Calvi</p>
           </div>
         </div>
-      </div>    </div>
+      </div>   <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/funeral.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arcade Fire</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Funeral</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/neonbible.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arcade Fire</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Neon Bible</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/suburbs.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arcade Fire</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">The Suburbs</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/everything.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arcade Fire</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Everything Now</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/neighbourhood.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arcade Fire</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Neighborhood</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/arcadefire.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arcade Fire</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Arcade Fire</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/humbug.png"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arctic Monkeys</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Humbug</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/tranquility.png"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arctic Monkeys</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Tranquility Base Hotel & Casino</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/am.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arctic Monkeys</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">AM</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/suck.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arctic Monkeys</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Suck It And See</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/whateverpeop.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Arctic Monkeys</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Whatever People Say I Am, That's What I'm Not</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/hauntedgraf.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Ariel Pink</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Haunted Grafitti</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/pompom.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Ariel Pink</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Pom Pom</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/sinceileft.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Avalanches</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Since I left you</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/inthesilence.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Asgeir</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">In The Silence</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/afterglow.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Asgeir</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Afterglow</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/dropout.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Baby Woodrose</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Dropout!</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/boh_everything.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Band of Horses</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Everything all the time</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/ceasetobegin.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Band of horses</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Cease To Begin</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/basementjaxx.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Basement Jaxx</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">The Singles</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/crackle.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Bauhaus</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Crackle</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/burningfrom.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Bauhaus</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Burning From The Inside</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/depressioncherry.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Beach House</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Depression Cherry</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/devotion.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Beach House</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Devotion</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/help.jpeg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>The Beatles</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Help!</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/abbeyroad.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>The Beatles</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Abbey Road</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/lostabbey.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>The Beatles</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">The Lost abbey road tapes</p>
+          </div>
+        </div>
+      </div>   <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/odelay.webp"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Beck</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Odelay</p>
+          </div>
+        </div>
+      </div>  <div class="col-span-1">
+        <div class="album-card">
+          <img
+            class="album-cover"
+            src="album_covers/morningphase.jpg"
+            alt="Designer"
+          />
+          <div class="album-info">
+            <p>Beck</p>
+            <p class="text-xs	" style="font-family: 'Bungee Inline'">Morning Phase</p>
+          </div>
+        </div>
+      </div>  </div>
 
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./main.js">// Get the burger menu icon element
+      const burgerMenu = document.querySelector(".burger-menu");
+      
+      // Get the navigation menu element
+      const navigationMenu = document.querySelector(".navigation");
+      
+      // Add event listener to the burger menu icon
+      burgerMenu.addEventListener("click", () => {
+        // Toggle the "active" class on both the burger menu icon and the navigation menu
+        burgerMenu.classList.toggle("active");
+        navigationMenu.classList.toggle("active");
+      });</script>
+
+ 
+
+
   </body>
 </html>
