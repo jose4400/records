@@ -76,6 +76,29 @@
           transform: scale(0.5);
         }
       }
+
+      h1 {
+        font-family: "Bungee Inline", cursive;
+        color: #be0000;
+      }
+
+      .btn-ud {
+        border: #be0000 solid 2px;
+        background: #fff;
+        font-family: "Bungee Inline", cursive;
+        width: 150px;
+        height: 40px;
+        border-radius: 7px;
+        font-size: 20px;
+      }
+      .btn-ud:hover {
+        color: #be0000;
+        background: #e8e8e8;
+      }
+
+      .arrow {
+        fill: #fff;
+      }
     </style>
   </head>
   <body>
@@ -100,18 +123,40 @@
       </div>
     </nav>
     <div class="content">
-      <section>
-        <h1 class="text-xl font-bold text-emerald-700">Indie Records</h1>
-        <p class="text-emerald-500">
-          Powered by <a href="https://vitejs.dev/guide">Vite</a>
-        </p>
-        <img src="img/vite.svg" alt="Vite Logo" />
-      </section>
-      <section>
-        <div>
-          <img src="rec.gif" alt="record" />
+      <img
+        class="absolute top-1/4 left-1/2 h-36 -translate-x-1/2"
+        src="album_covers/logofor.svg"
+        alt="plade"
+      />
+      <h1 class="absolute top-1/2 left-1/2 -translate-x-1/2 text-7xl uppercase">
+        Indie records
+      </h1>
+      <section class="">
+        <img
+          class="h-full object-cover"
+          src="album_covers/forsideimg.jpg"
+          alt=""
+        />
+
+        <div
+          class="absolute top-2/3 left-1/2 w-7/12 -translate-x-1/2 border-b-2 border-white"
+        ></div>
+        <div class="absolute top-3/4 left-1/2 -translate-x-1/2">
+          <button class="btn-ud m-10">
+            <a href="albums.html">Udvalg</a>
+          </button>
+          <div
+            class="scroll-down white absolute top-3/4 left-1/2 w-14 -translate-x-1/2"
+          >
+            <img
+              class="arrow"
+              src="album_covers/arrow-down.svg"
+              alt="pil ned"
+            />
+          </div>
         </div>
       </section>
+      <section></section>
     </div>
 
     <script type="module" src="./main.js"></script>
