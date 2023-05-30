@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Indie Records</title>
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script src="tailwind.config.cjs"></script>
+    <script src="tailwind.config.cjs"></script>  
+    <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+  ></script>
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&display=swap");
@@ -121,6 +125,10 @@
   text-align: center;
   margin-bottom: 20px;
   }
+
+  .form-control{
+
+  }
    @media (max-width: 768px) {
   .album-card {
     width: 150px;
@@ -232,12 +240,14 @@
  
     </style>
   </head>
-  <body class="">
-    <nav class="menu-bar">
+  <body class="dark:bg-gray-700">
+    <nav class="menu-bar dark:bg-gray-700">
      <a href="index.html"> <img class="logo" src="album_covers/logo.png" alt="logo" /></a>
       <div class="navigation">
         <a class="menu scale-down-center text-xl pr-10" href="index.html">Home</a>
-        <a class="menu scale-down-center text-xl pr-10" href="albums.html">Udvalg</a>
+        <a class="menu scale-down-center text-xl pr-10" href="albums.html">Udvalg</a>    <a class="menu scale-down-center pr-10 text-xl" href="kontakt.html"
+        >Kontakt</a
+      >
         <div class="icons">
           <a href="https://www.facebook.com/" class="scale-down-center">
             <img src="facebook.svg" alt="facebook" />
@@ -252,22 +262,117 @@
       <div class="navigation mobile"></div>
     </nav>
     <div class="text-5xl m-9"><h1>Udvalg</h1></div>
+    <div class="mx-24">	
+      <form class="border-black border-2 grid grid-cols-3 gap-2 place-items-center p-4">
+      <div class="border-r-red-800 border-r-2"> <h3 class="m-10 text-red-800 font-semibold">Filtrér udvalget</h3></div> 
+     <div class="">   <h4 class="uppercase font-semibold">Efter genrer</h4>
+      <div class=" grid grid-cols-3 gap-2"> <div class="form-control col-span-1">
+          <input type="checkbox" id="all" name="genre" value="all" checked>
+          <label for="genre">Alle Genrer</label>
+        </div>
+
+        <div class="form-control col-span-1">
+          <input type="checkbox" id="rock" name="genre" value="rock">
+          <label for="genre">Rock</label>
+        </div>
+
+         <div class="form-control">
+          <input type="checkbox" id="pop" name="genre" value="pop">
+          <label for="genre">Pop</label>
+        </div>  
+        
+        <div class="form-control">
+          <input type="checkbox" id="electronica" name="genre" value="electronica">
+          <label for="genre">Elektronisk</label>
+        </div>   
+        
+        <div class="form-control">
+          <input type="checkbox" id="metal" name="genre" value="metal">
+          <label for="genre">Heavy Metal</label>
+        </div>      
+        
+        <div class="form-control">
+          <input type="checkbox" id="hiphop" name="genre" value="hiphop">
+          <label for="genre">Hip Hop</label>
+        </div>    
+        
+        <div class="form-control">
+          <input type="checkbox" id="indie" name="genre" value="indie">
+          <label for="genre">Indie</label> 
+          </div>
+
+           <div class="form-control">
+            <input type="checkbox" id="blues" name="genre" value="blues">
+            <label for="genre">Blues</label>  
+           </div>   
+            
+            <div class="form-control">
+              <input type="checkbox" id="jazz" name="genre" value="jazz">
+              <label for="genre">Jazz</label>
+            </div></div></div>
+    
+            <div class="periode">  <h4 class="uppercase font-semibold">Efter periode</h4>
+             <div class=" grid grid-cols-3 gap-2"> <div class="form-control">
+                <input type="checkbox" id="all" name="year" value="all" checked>
+                <label for="genre">Alle Årtier</label>
+              </div>
+      
+              <div class="form-control">
+                <input type="checkbox" id="2020" name="year" value="2020">
+                <label for="genre">2020'erne</label>
+              </div>
+      
+               <div class="form-control">
+                <input type="checkbox" id="2010" name="year" value="2010">
+                <label for="genre">2010'erne</label>
+              </div>  
+              
+              <div class="form-control">
+                <input type="checkbox" id="2000" name="year" value="2000">
+                <label for="genre">2000'erne</label>
+              </div>   
+              
+              <div class="form-control">
+                <input type="checkbox" id="1990" name="year" value="1990">
+                <label for="genre">1990'erne</label>
+              </div>      
+              
+              <div class="form-control">
+                <input type="checkbox" id="1980" name="year" value="1980">
+                <label for="genre">1980'erne</label>
+              </div>    
+              
+              <div class="form-control">
+                <input type="checkbox" id="1970" name="year" value="1970">
+                <label for="genre">1970'erne</label> 
+                </div>
+      
+                 <div class="form-control">
+                  <input type="checkbox" id="1960" name="year" value="1960">
+                  <label for="genre">1960'erne</label>  
+                 </div>   
+                  
+                  <div class="form-control">
+                    <input type="checkbox" id="1950" name="year" value="1950">
+                    <label for="genre">1950'erne</label>
+                  </div></div></div>
+      </form></div>
     <div class="bg-img grid grid-cols-5 gap-2 place-items-center m-16">
       <div class="col-span-1">
-        <div class="album-card">
+        <div class="album-card" :class="{'hidden': !(['all', 'electronica'].includes(genre) && ['all', '1990'].includes(year)) }">
           <img
             class="album-cover"
             src="album_covers/moon_safari.jpg"
             alt="Moon Safari"
           />
-          <div class="album-info">
+          <div class="album-info" >
             <p style="font-family: 'Bungee Inline'">Air</p>
             <p class="small" style="font-family: 'Bungee Inline'">Moon Safari</p>
           </div>
         </div>
       </div>
       <div class="col-span-1">
-        <div class="album-card">
+        <div class="album-card" :class="{'hidden': !(['all', 'pop'].includes(genre) && ['all', '2010'].includes(year)) }">
           <img class="album-cover" src="album_covers/party.jpg" alt="Party" />
           <div class="album-info">
             <p>Aldous Harding</p>

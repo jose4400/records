@@ -1,3 +1,5 @@
 import "./style.css";
 
-// JavaScript code for burger menu functionality
+import Alpine from "alpinejs";
+window.Alpine = Alpine;
+Alpine.start();
