@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Indie Records</title>
+    <link rel="icon" type="image/x-icon" href="album_covers/logoicon.png" />
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="tailwind.config.cjs"></script>
     <script
@@ -101,6 +102,7 @@
         font-family: "Bungee", sans-serif;
         color: #be0000;
       }
+
       h3 {
         font-family: "Bungee", sans-serif;
         color: #922824;
@@ -116,11 +118,29 @@
       textarea {
         display: block;
       }
+
+      .form-felt {
+        margin-bottom: 20px;
+      }
+      .btn-ud {
+        border: #000 solid 2px;
+        background: #fff;
+        font-family: "Bungee Inline", cursive;
+        width: 150px;
+        height: 40px;
+        border-radius: 7px;
+        font-size: 16px;
+      }
+      .btn-ud:hover {
+        color: #be0000;
+      }
     </style>
   </head>
   <body>
     <nav class="menu-bar dark:bg-gray-700">
-      <img class="logo" src="album_covers/logo.png" alt="logo" />
+      <a href="index.html">
+        <img class="logo" src="album_covers/logo.png" alt="logo"
+      /></a>
       <div class="navigation">
         <a class="menu scale-down-center pr-10 text-xl" href="index.html"
           >Home</a
@@ -142,75 +162,77 @@
         </div>
       </div>
     </nav>
+   
 
-    <section><h2>Kontakt</h2></section>
+      <section
+        class="kontakt m-36 grid grid-cols-2 place-items-center border-2 border-black bg-white p-10"
+      >
+        <div>
+          <h3 class="text-xl">Kontakt os</h3>
 
-    <section
-      class="kontakt m-32 grid grid-cols-2 place-items-center border-2 border-black bg-white p-10"
-    >
-      <div>
-        <h3>Kontakt os</h3>
-
-        <p>
-          Har du spørgsmål, brug for rådgivning eller ønsker du at få fat i
-          fantastisk indie-musik? Så er du kommet til det rette sted! Vi hos
-          Indie Records er altid klar til at hjælpe dig. <br /><br />Udfyld
-          formularen og vi vil vende tilbage til dig så hurtigt som muligt. Du
-          er også meget velkommen til at ringe på telefon +45 2987 4206.<br /><br />
-          Vi har også en fysisk butik, hvor du kan opleve den autentiske
-          stemning og bladre gennem vores imponerende udvalg af vinylplader. Du
-          finder vores adresse nedenfor, og vi vil med glæde byde dig velkommen
-          og hjælpe dig med at finde dine nye yndlingsplader.<br /><br />
-          <b> Telefon:</b> +45 2987 4206<br />
-          <b> E-mail:</b> passage21@indierecords.dk <br /><br /><b
-            >Indie Records</b
-          ><br />
-          Sankt Hans Gade 9<br />
-          2200 København N<br /><br />
-          <b>ÅBNINGSTIDER</b> <br />
-          Torsdag13 til 17.30<br />
-          Fredag 13 til 19<br />
-          Lørdag 12 til 16<br />
-          Søn-ons lukket
-        </p>
-      </div>
-      <div>
-        <form action="">
-          <div class="form-felt">
-            <label for="name">Navn</label>
-            <input
-              placeholder="Skriv dit navn"
-              id="name"
-              name="name"
-              type="text"
-            />
-          </div>
-          <div class="form-felt">
-            <label for="email">E-mail</label>
-            <input
-              placeholder="Skriv din email"
-              id="email"
-              name="email"
-              type="email"
-            />
-          </div>
-          <div class="form-felt">
+          <p>
+            Har du spørgsmål, brug for rådgivning eller ønsker du at få fat i
+            fantastisk indie-musik? Så er du kommet til det rette sted! Vi hos
+            Indie Records er altid klar til at hjælpe dig. <br /><br />Udfyld
+            formularen og vi vil vende tilbage til dig så hurtigt som muligt. Du
+            er også meget velkommen til at ringe på telefon +45 2987 4206.<br /><br />
+            Vi har også en fysisk butik, hvor du kan opleve den autentiske
+            stemning og bladre gennem vores imponerende udvalg af vinylplader.
+            Du finder vores adresse nedenfor, og vi vil med glæde byde dig
+            velkommen og hjælpe dig med at finde dine nye yndlingsplader.<br /><br />
+            <b> Telefon:</b> +45 2987 4206<br />
+            <b> E-mail:</b> passage21@indierecords.dk <br /><br /><b
+              >Indie Records</b
+            ><br />
+            Sankt Hans Gade 9<br />
+            2200 København N<br /><br />
+            <b>ÅBNINGSTIDER</b> <br />
+            Torsdag13 til 17.30<br />
+            Fredag 13 til 19<br />
+            Lørdag 12 til 16<br />
+            Søn-ons lukket
+          </p>
+        </div>
+        <div>
+          <form action="">
             <div class="form-felt">
-              <label>
-                Besked
-                <textarea
-                  name="besked"
-                  placeholder="Hvad kan vi hjælpe med?"
-                  rows="5"
-                  class="border-2 border-black"
-                ></textarea>
-              </label>
+              <label for="name">Navn</label>
+              <input
+                placeholder="Skriv dit navn"
+                id="name"
+                name="name"
+                type="text"
+                class="w-80 rounded-lg border-2 border-black p-2"
+              />
             </div>
-          </div>
-          <button>Send besked</button>
-        </form>
-      </div>
-    </section>
+            <div class="form-felt">
+              <label for="email">E-mail</label>
+              <input
+                placeholder="Skriv din email"
+                id="email"
+                name="email"
+                type="email"
+                class="w-80 rounded-lg border-2 border-black p-2"
+              />
+            </div>
+            <div class="form-felt">
+              <div class="form-felt">
+                <label>
+                  Besked
+                  <textarea
+                    name="besked"
+                    placeholder="Hvad kan vi hjælpe med?"
+                    rows="5"
+                    class="w-80 rounded-lg border-2 border-black p-2"
+                  ></textarea>
+                </label>
+              </div>
+            </div>
+            <button class="btn-ud">Send besked</button>
+          </form>
+        </div>
+      </section>
+    </div>
     <footer
       class="grid grid-cols-3 place-items-center gap-4 border-2 border-black bg-white"
     >

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Indie Records</title>
+    <link rel="icon" type="image/x-icon" href="album_covers/logoicon.png" />
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="tailwind.config.cjs"></script>  
     <script
@@ -126,9 +127,10 @@
   margin-bottom: 20px;
   }
 
-  .form-control{
-
+  .form-control{ 
+    accent-color: #BE0000;
   }
+
    @media (max-width: 768px) {
   .album-card {
     width: 150px;
@@ -264,7 +266,7 @@
     <div class="text-5xl m-9"><h1>Udvalg</h1></div>
     <div class="mx-24">	
       <form class="border-black border-2 grid grid-cols-3 gap-2 place-items-center p-4">
-      <div class="border-r-red-800 border-r-2"> <h3 class="m-10 text-red-800 font-semibold">Filtrér udvalget</h3></div> 
+      <div class="border-r-red-800 border-r-2"> <h3 class="m-10 text-red-800 font-semibold uppercase">Filtrér udvalget</h3></div> 
      <div class="">   <h4 class="uppercase font-semibold">Efter genrer</h4>
       <div class=" grid grid-cols-3 gap-2"> <div class="form-control col-span-1">
           <input type="checkbox" id="all" name="genre" value="all" checked>
@@ -272,7 +274,7 @@
         </div>
 
         <div class="form-control col-span-1">
-          <input type="checkbox" id="rock" name="genre" value="rock">
+          <input type="checkbox" class="accent-red-600 text-white" id="rock" name="genre" value="rock">
           <label for="genre">Rock</label>
         </div>
 
@@ -286,10 +288,7 @@
           <label for="genre">Elektronisk</label>
         </div>   
         
-        <div class="form-control">
-          <input type="checkbox" id="metal" name="genre" value="metal">
-          <label for="genre">Heavy Metal</label>
-        </div>      
+    
         
         <div class="form-control">
           <input type="checkbox" id="hiphop" name="genre" value="hiphop">
@@ -304,7 +303,10 @@
            <div class="form-control">
             <input type="checkbox" id="blues" name="genre" value="blues">
             <label for="genre">Blues</label>  
-           </div>   
+           </div>      <div class="form-control">
+            <input type="checkbox" id="metal" name="genre" value="metal">
+            <label for="genre">Heavy Metal</label>
+          </div>  
             
             <div class="form-control">
               <input type="checkbox" id="jazz" name="genre" value="jazz">
