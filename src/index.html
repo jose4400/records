@@ -271,50 +271,45 @@
         margin-right: 10px;
       }
 
+      .cookieboks {
+        border: 1px solid #000;
+        border-radius: 8px;
+        background-color: #f7f7f7;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        color: black;
+        position: fixed;
+      }
+      .cookie-box.show {
+        display: flex;
+      }
+      .button1:hover {
+        background-color: #45a049;
+      }
+      .button2:hover {
+        background-color: #be0000;
+      }
 
-.cookie-box {
-  text-align: center;
-  padding: 40px;
-  border: 2px solid #000;
-  border-radius: 8px;
-  background-color: #f7f7f7;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+      .buttons {
+        margin-top: 10px;
+      }
 
-
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.buttons {
-  margin-top: 10px;
-}
-
+      .button1 {
+        padding: 5px;
+        font-size: 16px;
+        color: black;
+        border-radius: 4px;
+        cursor: pointer;
+        border: #be0000 solid 1px;
+      }
+      .button2 {
+        padding: 5px;
+        font-size: 16px;
+        color: black;
+        border-radius: 4px;
+        cursor: pointer;
+        border: #be0000 solid 1px;
+      }
     </style>
   </head>
   <body>
@@ -341,14 +336,7 @@ button:hover {
         </div>
       </div>
     </nav>
-    <div id="cookie-box" class="cookie-box">
-      <p>Dette websted bruger cookies til at forbedre din oplevelse. Ved at fortsætte accepterer du vores <a href="cookie-og-privatlivspolitik.html">cookie-og-privatlivspolitik</p>
-      <div class="buttons">
-        <button onclick="acceptCookies()">Acceptér</button>
-        <button onclick="rejectCookies()">Afvist</button>
-      </div>
-    </div>
-    
+
     <img
       class="absolute left-1/2 top-1/4 h-36 -translate-x-1/2"
       src="album_covers/logofor.svg"
@@ -423,41 +411,56 @@ button:hover {
           </div>
         </div>
       </div>
-      <script type="module" src="./main.js">// Get the burger menu icon element
-        const burgerMenu = document.querySelector(".burger-menu");
-        
-        // Get the navigation menu element
-        const navigationMenu = document.querySelector(".navigation");
-        
-        // Add event listener to the burger menu icon
-        burgerMenu.addEventListener("click", () => {
-          // Toggle the "active" class on both the burger menu icon and the navigation menu
-          burgerMenu.classList.toggle("active");
-          navigationMenu.classList.toggle("active");
-        });
-        
-        // Hent cookie-boksen fra DOM
-const cookieBox = document.getElementById('cookie-box');
+    </section>
+    <section>
+      <div id="cookieboks" class="p-10">
+        <div>
+          <p>
+            Dette websted bruger cookies til at forbedre din oplevelse. Ved at
+            fortsætte accepterer du vores
+            <a class="underline" href="cookie-og-privatlivspolitik.html"
+              >cookiepolitik</a
+            >.
+          </p>
+        </div>
+        <div class="buttons">
+          <button id="accepter" class="button1">Accepter</button>
+          <button id="afvis" class="button2">Afvise</button>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="./main.js">
+                    // Get the burger menu icon element
+                            const burgerMenu = document.querySelector(".burger-menu");
 
-// Tjek om cookies er accepteret
-const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+                            // Get the navigation menu element
+                            const navigationMenu = document.querySelector(".navigation");
 
-// Vis cookie-boksen, hvis cookies ikke er accepteret
-if (!cookiesAccepted) {
-  cookieBox.style.display = 'block';
-}
+                            // Add event listener to the burger menu icon
+                            burgerMenu.addEventListener("click", () => {
+                              // Toggle the "active" class on both the burger menu icon and the navigation menu
+                              burgerMenu.classList.toggle("active");
+                              navigationMenu.classList.toggle("active");
+                            });
 
-// Funktion til at acceptere cookies
-function acceptCookies() {
-  localStorage.setItem('cookiesAccepted', true);
-  cookieBox.style.display = 'none';
-}
 
-// Funktion til at afvise cookies
-function rejectCookies() {
-  cookieBox.style.display = 'none';
-}
-</script>
+                            document.addEventListener('DOMContentLoaded', () => {
+            // Get the cookie box element
+            const acceptCookie = document.querySelector("#accepter");
+            const denyCookie = document.querySelector("#afvis");
+            const cookieboks = document.querySelector("#cookieboks");
+
+      acceptCookie.addEventListener("click", fjernCookieboks);
+      denyCookie.addEventListener("click", fjernCookieboks);
+
+      function fjernCookieboks() {
+        cookieboks.classList.add("hidden");
+        sessionStorage.setItem("fjerncookieboks", true);
+      }
+
+      if (sessionStorage.getItem("fjerncookieboks")){cookieboks.classList.add("hidden");}
+                              })
+    </script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
