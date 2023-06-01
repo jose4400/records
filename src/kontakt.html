@@ -267,7 +267,18 @@
       </div>
     </footer>
     
-
+    <script type="module" src="./main.js">// Get the burger menu icon element
+      const burgerMenu = document.querySelector(".burger-menu");
+      
+      // Get the navigation menu element
+      const navigationMenu = document.querySelector(".navigation");
+      
+      // Add event listener to the burger menu icon
+      burgerMenu.addEventListener("click", () => {
+        // Toggle the "active" class on both the burger menu icon and the navigation menu
+        burgerMenu.classList.toggle("active");
+        navigationMenu.classList.toggle("active");
+      });</script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

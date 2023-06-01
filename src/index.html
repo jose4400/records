@@ -233,7 +233,6 @@
       section {
         scroll-snap-align: start;
         scroll-snap-stop: always;
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -271,6 +270,51 @@
       .slider-next {
         margin-right: 10px;
       }
+
+
+.cookie-box {
+  text-align: center;
+  padding: 40px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
     </style>
   </head>
   <body>
@@ -297,7 +341,14 @@
         </div>
       </div>
     </nav>
-
+    <div id="cookie-box" class="cookie-box">
+      <p>Dette websted bruger cookies til at forbedre din oplevelse. Ved at fortsætte accepterer du vores <a href="cookie-og-privatlivspolitik.html">cookie-og-privatlivspolitik</p>
+      <div class="buttons">
+        <button onclick="acceptCookies()">Acceptér</button>
+        <button onclick="rejectCookies()">Afvist</button>
+      </div>
+    </div>
+    
     <img
       class="absolute left-1/2 top-1/4 h-36 -translate-x-1/2"
       src="album_covers/logofor.svg"
@@ -372,58 +423,41 @@
           </div>
         </div>
       </div>
-    </section>
+      <script type="module" src="./main.js">// Get the burger menu icon element
+        const burgerMenu = document.querySelector(".burger-menu");
+        
+        // Get the navigation menu element
+        const navigationMenu = document.querySelector(".navigation");
+        
+        // Add event listener to the burger menu icon
+        burgerMenu.addEventListener("click", () => {
+          // Toggle the "active" class on both the burger menu icon and the navigation menu
+          burgerMenu.classList.toggle("active");
+          navigationMenu.classList.toggle("active");
+        });
+        
+        // Hent cookie-boksen fra DOM
+const cookieBox = document.getElementById('cookie-box');
 
-    <section></section>
+// Tjek om cookies er accepteret
+const cookiesAccepted = localStorage.getItem('cookiesAccepted');
 
-    <!------ <section>
-      <div class="slider">
-        <div class="slider-container">
-          <div class="slider-slide">
-            <img class="w-44" src="album_covers/abbeyroad.jpg" alt="Image 1" />
-          </div>
-          <div class="slider-slide">
-            <img class="w-44" src="album_covers/afterglow.jpeg" alt="Image 2" />
-          </div>
-          <div class="slider-slide">
-            <img class="w-44" src="album_covers/annacalvi.webp" alt="Image 3" />
-          </div>
-        </div>
-        <div class="slider-controls">
-          <button class="slider-prev">Prev</button>
-          <button class="slider-next">Next</button>
-        </div>
-      </div>
-    </section>
+// Vis cookie-boksen, hvis cookies ikke er accepteret
+if (!cookiesAccepted) {
+  cookieBox.style.display = 'block';
+}
 
-    <script>
-      // Get the required elements
-      const sliderContainer = document.querySelector(".slider-container");
-      const sliderSlides = document.querySelectorAll(".slider-slide");
-      const prevButton = document.querySelector(".slider-prev");
-      const nextButton = document.querySelector(".slider-next");
+// Funktion til at acceptere cookies
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', true);
+  cookieBox.style.display = 'none';
+}
 
-      // Set initial slide index
-      let currentSlide = 0;
-
-      // Handle previous button click
-      prevButton.addEventListener("click", () => {
-        currentSlide =
-          (currentSlide - 1 + sliderSlides.length) % sliderSlides.length;
-        updateSliderPosition();
-      });
-
-      // Handle next button click
-      nextButton.addEventListener("click", () => {
-        currentSlide = (currentSlide + 1) % sliderSlides.length;
-        updateSliderPosition();
-      });
-
-      // Update slider position
-      function updateSliderPosition() {
-        sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-      }
-    </script>----->
+// Funktion til at afvise cookies
+function rejectCookies() {
+  cookieBox.style.display = 'none';
+}
+</script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
