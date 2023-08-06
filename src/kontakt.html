@@ -136,34 +136,70 @@
       .btn-ud:hover {
         color: #be0000;
       }
+        .menu-bar .navigation {
+        display: none;
+      }
+
+      .menu-bar .burger-menu {
+        display: block;
+        cursor: pointer;
+        color: rgba(190, 0, 0, 1);
+        font-size: 20px;
+        margin-left: 15px;
+      }
+
+      .menu-bar .navigation.mobile {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .menu-bar .navigation.mobile a {
+        margin: 5px 0;
+      }
+
+      @media (min-width: 768px) {
+        .menu-bar .navigation {
+          display: flex;
+          align-items: center;
+        }
+
+        .menu-bar .burger-menu {
+          display: none;
+        }
+
+        .menu-bar .navigation.mobile {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
     <nav class="menu-bar dark:bg-gray-700">
-      <a href="index.html">
-        <img class="logo" src="album_covers/logo.png" alt="logo"
-      /></a>
-      <div class="navigation">
-        <a class="menu scale-down-center pr-10 text-xl" href="index.html"
-          >Home</a
-        >
-        <a class="menu scale-down-center pr-10 text-xl" href="albums.html"
-          >Udvalg</a
-        >
-        <a class="menu scale-down-center pr-10 text-xl" href="kontakt.html"
-          >Kontakt</a
-        >
-
-        <div class="icons">
-          <a href="https://www.facebook.com/" class="scale-down-center">
-            <img src="facebook.svg" alt="facebook" />
-          </a>
-          <a href="https://www.instagram.com/" class="scale-down-center">
-            <img src="insta.svg" alt="instagram" />
-          </a>
-        </div>
-      </div>
-    </nav>
+      <a href="index.html"> <img class="logo" src="album_covers/logo.png" alt="logo" /></a>
+       <div class="navigation">
+         <a class="menu scale-down-center text-xl pr-10" href="index.html">Home</a>
+         <a class="menu scale-down-center text-xl pr-10" href="albums.html">Udvalg</a>    <a class="menu scale-down-center pr-10 text-xl" href="kontakt.html"
+         >Kontakt</a
+       >
+         <div class="icons">
+           <a href="https://www.facebook.com/" class="scale-down-center">
+             <img src="facebook.svg" alt="facebook" />
+           </a>
+           <a href="https://www.instagram.com/" class="scale-down-center">
+             <img src="insta.svg" alt="instagram" />
+           </a>
+         </div>
+       </div>
+       <div class="burger-menu" onclick="toggleMobileNavigation()">&#9776;</div>
+       <div class="navigation mobile"></div>
+     </nav>
    
 
       <section
@@ -270,12 +306,9 @@
     <script type="module" src="./main.js">// Get the burger menu icon element
       const burgerMenu = document.querySelector(".burger-menu");
       
-      // Get the navigation menu element
       const navigationMenu = document.querySelector(".navigation");
       
-      // Add event listener to the burger menu icon
       burgerMenu.addEventListener("click", () => {
-        // Toggle the "active" class on both the burger menu icon and the navigation menu
         burgerMenu.classList.toggle("active");
         navigationMenu.classList.toggle("active");
       });</script>

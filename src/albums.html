@@ -19,10 +19,48 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+*{
+  box-sizing: border-box;
+}
 
-      .album-card {
-        position: relative;
-        width: 200px;
+.modal-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50vw;
+  width: 100vw;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  background-color: rgba(0,0,0,.5)
+}
+.modal-container.show{
+  pointer-events: auto;
+  opacity: 100%;
+  z-index: 9999;
+}
+
+.modal{
+  background-color: salmon;
+  width: 600px;
+  max-width: 100%;
+  border-radius: 5px;
+  padding: 30px 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+
+.modal h3, h4{ font-family: "Bungee", cursive; color: #be0000;}
+
+.test{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.album-card {
+ position: relative;
+ width: 200px;
         height: 200px;
         margin-bottom: 80px;
       }
@@ -184,12 +222,10 @@
     font-size: 24px;
   }
 }
-   /* Hide the navigation links by default on mobile and tablet */
    .menu-bar .navigation {
         display: none;
       }
 
-      /* Display the burger menu icon on mobile and tablet */
       .menu-bar .burger-menu {
         display: block;
         cursor: pointer;
@@ -198,7 +234,6 @@
         margin-left: 15px;
       }
 
-      /* Show the navigation links in a dropdown when the burger menu is clicked */
       .menu-bar .navigation.mobile {
         display: flex;
         flex-direction: column;
@@ -216,18 +251,15 @@
       }
 
       @media (min-width: 768px) {
-        /* Show the navigation links on desktop */
         .menu-bar .navigation {
           display: flex;
           align-items: center;
         }
 
-        /* Hide the burger menu icon on desktop */
         .menu-bar .burger-menu {
           display: none;
         }
 
-        /* Hide the mobile navigation links on desktop */
         .menu-bar .navigation.mobile {
           display: none;
         }
@@ -261,12 +293,11 @@
         </div>
       </div>
       <div class="burger-menu" onclick="toggleMobileNavigation()">&#9776;</div>
-      <!-- Add an additional empty div for the mobile navigation links -->
       <div class="navigation mobile"></div>
     </nav>
     <div class="text-5xl m-9"><h1>Udvalg</h1></div>
     <div class="mx-24">	
-      <form class="border-black border-2 grid grid-cols-3 gap-2 place-items-center p-4">
+      <form class="border-black border-2 grid sm:grid-cols-2 lg:grid-cols-3 lg:p-8 xl:grid-cols-3 2xl:grid-cols-3  place-items-center p-4">
       <div class="border-r-red-800 border-r-2"> <h3 class="m-10 text-red-800 font-semibold uppercase">Filtrér udvalget</h3></div> 
      <div class="">   <h4 class="uppercase font-semibold">Efter genrer</h4>
       <div class=" grid grid-cols-3 gap-2"> <div class="form-control col-span-1">
@@ -360,7 +391,7 @@
                     <label for="genre">1950'erne</label>
                   </div></div></div>
       </form></div>
-    <div class="bg-img grid grid-cols-5 gap-2 place-items-center m-16">
+    <div class="bg-img gap-2 place-items-center m-16 grid sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-5">
       <div class="col-span-1">
         <div class="album-card" :class="{'hidden': !(['all', 'electronica'].includes(genre) && ['all', '1990'].includes(year)) }">
           <img
@@ -374,13 +405,41 @@
           </div>
         </div>
       </div>
-      <div class="col-span-1">
-        <div class="album-card" :class="{'hidden': !(['all', 'pop'].includes(genre) && ['all', '2010'].includes(year)) }">
+      <div class="test col-span-1">
+       <button id="open"> <div class="album-card" :class="{'hidden': !(['all', 'pop'].includes(genre) && ['all', '2010'].includes(year)) }">
           <img class="album-cover" src="album_covers/party.jpg" alt="Party" />
           <div class="album-info">
             <p>Aldous Harding</p>
             <p class="text-xs	" style="font-family: 'Bungee Inline'">Party</p>
           </div>
+        </div></button>
+        <div class="modal-container place-items-center" id="modal_container">
+          <div class="modal  bg-white border-2 border-black">
+           <div class="grid grid-cols-2"> <div class="col-span-1"><h3 class="text-xl">Aldous Harding</h3>
+            <h4 class="text-lg mb-2">Party</h4></div><div class="col-span-1 justify-self-end">  <button id="close" class="py-1 px-2 border-2 rounded-lg border-red-800 bg-slate-100">X</button></div></div>
+         <div class="grid grid-cols-3 mb-4"> <div class="col-span-2"> 
+          <p>Blend<br>
+            Imagining My Man<br>
+            Living The Classics<br>
+            Party<br>
+            I'm So Sorry<br>
+            Horizon	<br>
+            What If Birds Aren't Singing<br>
+            The World Is Looking For You<br>
+            Swell Does The Skull
+</p></div>
+<div class="col-span-1 justify-self-end">
+  <p>
+  2:29<br>
+  5:50<br>
+  2:45<br>
+  5:43<br>
+  3:48<br>
+  4:09<br>
+  3:04<br>
+  5:08<br>
+  5:49
+</p></div> </div>         </div>
         </div>
       </div>
       <div class="col-span-1">
@@ -996,19 +1055,28 @@
     </footer>
 
     <script type="module" src="./main.js">// Get the burger menu icon element
-      const burgerMenu = document.querySelector(".burger-menu");
-      
-      // Get the navigation menu element
-      const navigationMenu = document.querySelector(".navigation");
-      
-      // Add event listener to the burger menu icon
-      burgerMenu.addEventListener("click", () => {
-        // Toggle the "active" class on both the burger menu icon and the navigation menu
-        burgerMenu.classList.toggle("active");
-        navigationMenu.classList.toggle("active");
-      });</script>
+   
+      </script>
 
- 
+ <script>   const burgerMenu = document.querySelector(".burger-menu");
+      
+  const navigationMenu = document.querySelector(".navigation");
+  
+  burgerMenu.addEventListener("click", () => {
+    burgerMenu.classList.toggle("active");
+    navigationMenu.classList.toggle("active");
+  });
+  
+  const open = document.getElementById('open');
+  const modal_container = document.getElementById('modal_container');
+  const close = document.getElementById('close');
+
+  open.addEventListener('click', () =>{
+    modal_container.classList.add('show');
+  });
+  close.addEventListener('click', () =>{
+    modal_container.classList.remove('show');
+  });</script>
 
 
   </body>
